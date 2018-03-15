@@ -82,3 +82,7 @@ Light Bootstrap Dashboard React
         └── UserProfile
             └── UserProfile.jsx
 ```
+
+## Template
+
+This application is based on the template [Light Bootstrap Dashboard React](https://github.com/creativetimofficial/light-bootstrap-dashboard-react) developed by [Creative Tim](https://www.creative-tim.com/) with a [MIT License](https://github.com/creativetimofficial/light-bootstrap-dashboard-react/blob/master/LICENSE.md).
