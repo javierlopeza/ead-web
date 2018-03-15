@@ -10,7 +10,7 @@
 5. Then: ```npm start```
 6. Navigate to `http://localhost:3000/`
 
-### What's included
+## What's included
 
 Within the download you'll find the following directories and files:
 ```
