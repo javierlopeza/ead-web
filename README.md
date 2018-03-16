@@ -15,10 +15,6 @@
 Within the download you'll find the following directories and files:
 ```
 Light Bootstrap Dashboard React
-├── Documentation
-│   ├── css
-│   ├── img
-│   └── tutorial-components.html
 ├── README.md
 ├── package.json
 ├── public
