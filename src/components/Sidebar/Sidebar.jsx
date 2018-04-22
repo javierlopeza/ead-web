@@ -33,14 +33,14 @@ class Sidebar extends Component{
             <div id="sidebar" className="sidebar" data-color="black" data-image={imagine}>
                 <div className="sidebar-background" style={sidebarBackground}></div>
                     <div className="logo">
-                        <a href="https://www.creative-tim.com" className="simple-text logo-mini">
+                        <a href="/" className="simple-text logo-mini">
                             <div className="logo-img">
                                 <img src={logo} alt="logo_image"/>
                             </div>
 
                         </a>
-                        <a href="https://www.creative-tim.com" className="simple-text logo-normal">
-                            Creative Tim
+                        <a href="/" className="simple-text logo-normal">
+                            Early Autism Detection
                         </a>
                     </div>
                 <div className="sidebar-wrapper">
@@ -48,7 +48,7 @@ class Sidebar extends Component{
                         { this.state.width <= 991 ? (<HeaderLinks />):null }
                         {
                             appRoutes.map((prop,key) => {
-                                if(!prop.redirect)
+                                if(!prop.redirect && !prop.results)
                                     return (
                                         <li className={prop.upgrade ? "active active-pro":this.activeRoute(prop.path)} key={key}>
                                             <NavLink to={prop.path} className="nav-link" activeClassName="active">

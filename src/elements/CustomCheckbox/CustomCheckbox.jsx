@@ -13,12 +13,10 @@ class CustomCheckbox extends Component {
     }
     render() {
         const { isChecked, number, label, inline,...rest } = this.props;
-        const classes = inline !== undefined ? "checkbox checkbox-inline":"checkbox";
         return (
-            <div className={classes}>
+            <div className={"checkbox"}>
                 <input id={number} type="checkbox" onChange={this.handleClick} checked={this.state.is_checked} {...rest}/>
-                <label htmlFor={number}>{label}
-                </label>
+                <label htmlFor={number}></label>
             </div>
         );
     }
