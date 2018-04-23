@@ -9,6 +9,8 @@ import {DataForm} from 'components/DataForm/DataForm.jsx';
 import {Checklist} from 'components/Checklist/Checklist.jsx';
 import Button from 'elements/CustomButton/CustomButton.jsx';
 
+import { WEB_ROOT } from 'api-config';
+
 class Predict extends Component {
     handleSubmit = () => {
         let query_checkboxes = "";
@@ -16,12 +18,12 @@ class Predict extends Component {
             query_checkboxes = `${query_checkboxes}&${prompt.prompt_id}=${prompt.value ? 1 : 0}`;
         });
         console.log(query_checkboxes); // do stuff
-        window.location = `http://localhost:3000/#/results?${query_checkboxes}`;
+        window.location = `${WEB_ROOT}results?${query_checkboxes}`;
     }
 
     checkFormCompletion = () => {
         const query = window.location.href.split("#")[0].split("?")[1];
-        if (query) window.location = `http://localhost:3000/#/predict`; 
+        if (query) window.location = `${WEB_ROOT}predict`; 
     }
 
     render() {

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import ChartistGraph from 'react-chartist';
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Grid, Row, Col, Table } from 'react-bootstrap';
 
 
-import {Card} from 'components/Card/Card.jsx';
-import {StatsCard} from 'components/StatsCard/StatsCard.jsx';
-import {Tasks} from 'components/Tasks/Tasks.jsx';
+import { Card } from 'components/Card/Card.jsx';
+import { StatsCard } from 'components/StatsCard/StatsCard.jsx';
+import { Tasks } from 'components/Tasks/Tasks.jsx';
 import {
     dataPie,
     legendPie,
@@ -20,10 +20,10 @@ import {
 } from 'variables/Variables.jsx';
 
 class Dashboard extends Component {
-    createLegend(json){
+    createLegend(json) {
         var legend = [];
-        for(var i = 0; i < json["names"].length; i++){
-            var type = "fa fa-circle text-"+json["types"][i];
+        for (var i = 0; i < json["names"].length; i++) {
+            var type = "fa fa-circle text-" + json["types"][i];
             legend.push(
                 <i className={type} key={i}></i>
             );
@@ -93,7 +93,7 @@ class Dashboard extends Component {
                                             responsiveOptions={responsiveSales}
                                         />
                                     </div>
-                                    }
+                                }
                                 legend={
                                     <div className="legend">
                                         {this.createLegend(legendSales)}
@@ -109,7 +109,7 @@ class Dashboard extends Component {
                                 stats="Campaign sent 2 days ago"
                                 content={
                                     <div id="chartPreferences" className="ct-chart ct-perfect-fourth">
-                                        <ChartistGraph data={dataPie} type="Pie"/>
+                                        <ChartistGraph data={dataPie} type="Pie" />
                                     </div>
                                 }
                                 legend={
@@ -164,6 +164,43 @@ class Dashboard extends Component {
                         </Col>
                     </Row>
 
+                    <Row>
+                        <Col md={12}>
+                            <Card
+                                title="Striped Table with Hover"
+                                category="Here is a subtitle for this table"
+                                ctTableFullWidth ctTableResponsive
+                                content={
+                                    <Table striped hover>
+                                        <thead>
+                                            <tr>
+                                                <th>Header 1</th>
+                                                <th>Header 2</th>
+                                                <th>Header 3</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Data1.1</td>
+                                                <td>Data1.2</td>
+                                                <td>Data1.3</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Data2.1</td>
+                                                <td>Data2.2</td>
+                                                <td>Data2.3</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Data3.1</td>
+                                                <td>Data3.2</td>
+                                                <td>Data3.3</td>
+                                            </tr>
+                                        </tbody>
+                                    </Table>
+                                }
+                            />
+                        </Col>
+                    </Row>
                 </Grid>
             </div>
         );

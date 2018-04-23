@@ -3,7 +3,14 @@ import { Grid, Row, Col } from 'react-bootstrap';
 
 import Card from 'components/Card/Card.jsx'
 
+import axios from 'axios';
+import { WEB_ROOT, API_ROOT } from 'api-config';
+
 class Results extends Component {
+    state = {
+        result: null
+    }
+
     getJsonFromQuery = () => {
         // Data
         const href = window.location.href;
@@ -14,6 +21,8 @@ class Results extends Component {
                 const item = part.split("=");
                 result[item[0]] = decodeURIComponent(item[1]);
             });
+        } else {
+
         }
         // Checkboxes
         query = href.split("?")[2];
@@ -24,14 +33,28 @@ class Results extends Component {
                     result[item[0]] = decodeURIComponent(item[1]);
                 }
             });
+        } else {
+            window.location = `${WEB_ROOT}predict`;
         }
         return result;
     }
 
+    checkParameters() {
+        // TODO
+    }
+
+    componentDidMount() {
+        axios.post(`${API_ROOT}predict2`, this.getJsonFromQuery()).then(res => {
+            const result = res.data;
+            this.setState({ result });
+        });
+    }
+
     render() {
+        this.checkParameters();
         return (
             <div className="content">
-                {JSON.stringify(this.getJsonFromQuery(), null, 4)}
+                RESULTS: {JSON.stringify(this.state.result)}
             </div>
         );
     }
