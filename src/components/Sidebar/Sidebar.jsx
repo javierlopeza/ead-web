@@ -37,15 +37,14 @@ class Sidebar extends Component{
                             <div className="logo-img">
                                 <img src={logo} alt="logo_image"/>
                             </div>
-
                         </a>
                         <a href="/" className="simple-text logo-normal">
-                            Early Autism Detection
+                            <span style={{fontSize: "14px"}}>Early Autism Detection</span>
                         </a>
                     </div>
                 <div className="sidebar-wrapper">
                     <ul className="nav">
-                        { this.state.width <= 991 ? (<HeaderLinks />):null }
+                        {/* { this.state.width <= 991 ? (<HeaderLinks />):null } */}
                         {
                             appRoutes.map((prop,key) => {
                                 if(!prop.redirect && !prop.results)
