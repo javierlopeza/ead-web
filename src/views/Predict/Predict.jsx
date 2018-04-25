@@ -53,7 +53,7 @@ class Predict extends Component {
                     </Row> */}
                     <Row>
                         <Col md={12} style={{display: 'flex', justifyContent: 'center'}}>
-                            <Button form="form1" onClick={this.handleSubmit} round fill bsStyle="info" type="submit">Get EAD Score</Button>
+                            <Button form="form1" onClick={this.handleSubmit} round fill bsStyle="info" type="submit">Get EAD Prediction</Button>
                         </Col>
                     </Row>
                 </Grid>

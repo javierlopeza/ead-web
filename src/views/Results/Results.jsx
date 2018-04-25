@@ -29,13 +29,17 @@ class Results extends Component {
 
     componentDidMount() {
         // POST prediction query
-        axios.post(`${API_ROOT}predict2`, this.getJsonFromQuery()).then(res => {
-            const result = res.data.results[0];
+        let query = this.getJsonFromQuery();
+        query.is_male = query.sex === "M" ? "1" : "0";
+        delete query.sex;
+        axios.post(`${API_ROOT}predict_ead`, [query]).then(res => {
+            const result = res.data.has_asd;
             this.setState({ result });
         });
     }
 
     render() {
+        const query = this.getJsonFromQuery();
         return (
             <div className="content">
             <Grid fluid>
@@ -43,11 +47,11 @@ class Results extends Component {
                     <Col md={6} mdOffset={3}>
                         <Card
                             hCenter
-                            title={`EAD Score: ${this.state.result ? this.state.result : "" }`}
+                            title={`EAD Prediction: ${this.state.result ? "ASD" : "Non-Spectrum" }`}
                             category="Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
                             ctTableResponsive ctTableFullWidth ctTableUpgrade
                             content={
-                                <Table>
+                                <Table style={{marginBottom: 0}}>
                                     <thead>
                                         <tr>
                                             <th>Feature</th>
@@ -56,32 +60,48 @@ class Results extends Component {
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>Components</td>
-                                            <td>30</td>
+                                            <td>Age in months</td>
+                                            <td>{query.age_months}</td>
                                         </tr>
                                         <tr>
-                                            <td>Plugins</td>
-                                            <td>3</td>
+                                            <td>Sex</td>
+                                            <td>{query.sex}</td>
                                         </tr>
                                         <tr>
-                                            <td>Example Pages</td>
-                                            <td>7</td>
+                                            <td>Unusual eye contact</td>
+                                            <td>{query.unusual_eye_contact}</td>
                                         </tr>
                                         <tr>
-                                            <td>Documentation</td>
-                                            <td><i className="fa fa-check text-success"></i></td>
+                                            <td>Anxiety</td>
+                                            <td>{query.anxiety}</td>
                                         </tr>
                                         <tr>
-                                            <td>SASS Files</td>
-                                            <td><i className="fa fa-check text-success"></i></td>
+                                            <td>Hand and finger mannerisms</td>
+                                            <td>{query.hand_finger_mannerisms}</td>
                                         </tr>
                                         <tr>
-                                            <td>Login/Register/Lock Pages</td>
-                                            <td><i className="fa fa-times text-danger"></i></td>
+                                            <td>Imagination / creativity</td>
+                                            <td>{query.imagination_creativity}</td>
                                         </tr>
                                         <tr>
-                                            <td>Premium Support</td>
-                                            <td><i className="fa fa-times text-danger"></i></td>
+                                            <td>Immediate echolalia</td>
+                                            <td>{query.immediate_echolalia}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Quality of social overtures</td>
+                                            <td>{query.quality_social_overtures}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Self-injurious behavior</td>
+                                            <td>{query.self_injurious_behavior}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Shared enjoyment in interaction</td>
+                                            <td>{query.shared_enjoyment_interaction}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tantrums, aggression or disruptive behavior</td>
+                                            <td>{query.tantrums_aggression_disruptive_behavior}</td>
                                         </tr>
                                     </tbody>
                                 </Table>

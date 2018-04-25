@@ -15,7 +15,7 @@ export class DataForm extends Component{
                 },
                 {
                     label: "Sex",
-                    type: "number",
+                    type: "text",
                     placeholder: "Sex",
                     ncols: "col-md-6",
                     name: "sex"                    
