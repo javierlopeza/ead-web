@@ -7,41 +7,87 @@ export class DataForm extends Component{
         const fields_groups = [
             [
                 {
-                    label: "First name",
-                    type: "text",
-                    placeholder: "First name",
+                    label: "Age in months",
+                    type: "number",
+                    placeholder: "Age in months",
                     ncols: "col-md-6",
-                    name: "first_name"
+                    name: "age_months"
                 },
                 {
-                    label: "Last name",
-                    type: "text",
-                    placeholder: "Last name",
+                    label: "Sex",
+                    type: "number",
+                    placeholder: "Sex",
                     ncols: "col-md-6",
-                    name: "last_name"                    
+                    name: "sex"                    
+                }
+            ],
+            [
+                {
+                    label: "Unusual eye contact",
+                    type: "number",
+                    placeholder: "Unusual eye contact",
+                    ncols: "col-md-4",
+                    name: "unusual_eye_contact"
+                },
+                {
+                    label: "Anxiety",
+                    type: "number",
+                    placeholder: "Anxiety",
+                    ncols: "col-md-4",
+                    name: "anxiety"                    
+                },
+                {
+                    label: "Hand and finger mannerisms",
+                    type: "number",
+                    placeholder: "Hand and finger mannerisms",
+                    ncols: "col-md-4",
+                    name: "hand_finger_mannerisms"                    
                 },
             ],
             [
                 {
-                    label : "Age in months",
+                    label : "Imagination / creativity",
                     type : "number",
-                    placeholder : "16",
+                    placeholder : "Imagination / creativity",
                     ncols: "col-md-4",
-                    name: "age_months"                                  
+                    name: "imagination_creativity"                                  
                 },
                 {
-                    label : "Height",
+                    label : "Immediate echolalia",
                     type : "number",
-                    placeholder : "80.2 cm",
+                    placeholder : "Immediate echolalia",
                     ncols: "col-md-4",
-                    name: "height"                    
+                    name: "immediate_echolalia"                    
                 },
                 {
-                    label : "Weight",
+                    label : "Quality of social overtures",
                     type : "number",
-                    placeholder : "10.1 kg",
+                    placeholder : "Quality of social overtures",
                     ncols: "col-md-4",
-                    name: "weight"                                        
+                    name: "quality_social_overtures"                                        
+                }
+            ],
+            [
+                {
+                    label : "Self-injurious behavior",
+                    type : "number",
+                    placeholder : "Self-injurious behavior",
+                    ncols: "col-md-4",
+                    name: "self_injurious_behavior"                                  
+                },
+                {
+                    label : "Shared enjoyment in interaction",
+                    type : "number",
+                    placeholder : "Shared enjoyment in interaction",
+                    ncols: "col-md-4",
+                    name: "shared_enjoyment_interaction"                    
+                },
+                {
+                    label : "Tantrums, aggression or disruptive behavior",
+                    type : "number",
+                    placeholder : "Tantrums, aggression or disruptive behavior",
+                    ncols: "col-md-4",
+                    name: "tantrums_aggression_disruptive_behavior"                                        
                 }
             ]
         ];

@@ -13,12 +13,7 @@ import { WEB_ROOT } from 'api-config';
 
 class Predict extends Component {
     handleSubmit = () => {
-        let query_checkboxes = "";
-        this.checklist.getData().prompts.forEach(prompt => {
-            query_checkboxes = `${query_checkboxes}&${prompt.prompt_id}=${prompt.value ? 1 : 0}`;
-        });
-        console.log(query_checkboxes); // do stuff
-        window.location = `${WEB_ROOT}results?${query_checkboxes}`;
+        window.location = `${WEB_ROOT}results`;
     }
 
     checkFormCompletion = () => {
@@ -42,7 +37,7 @@ class Predict extends Component {
                             />
                         </Col>
                     </Row>
-                    <Row>
+                    {/* <Row>
                         <Col md={12}>
                             <Card
                                 title="Check all that apply"
@@ -55,7 +50,7 @@ class Predict extends Component {
                                 }
                             />
                         </Col>
-                    </Row>
+                    </Row> */}
                     <Row>
                         <Col md={12} style={{display: 'flex', justifyContent: 'center'}}>
                             <Button form="form1" onClick={this.handleSubmit} round fill bsStyle="info" type="submit">Get EAD Score</Button>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Grid, Row, Col, Table, Button } from 'react-bootstrap';
 
 import Card from 'components/Card/Card.jsx'
 
@@ -12,50 +12,85 @@ class Results extends Component {
     }
 
     getJsonFromQuery = () => {
-        // Data
-        const href = window.location.href;
-        let query = href.split("?")[1].split("#")[0];
-        let result = {};
-        if (query) {
+        try {
+            // Data
+            const href = window.location.href;
+            let query = href.split("?")[1].split("#")[0];
+            let result = {};
             query.split("&").forEach(part => {
                 const item = part.split("=");
                 result[item[0]] = decodeURIComponent(item[1]);
             });
-        } else {
-
-        }
-        // Checkboxes
-        query = href.split("?")[2];
-        if (query) {
-            query.split("&").forEach(part => {
-                if (part.length) {
-                    const item = part.split("=");
-                    result[item[0]] = decodeURIComponent(item[1]);
-                }
-            });
-        } else {
+            return result;
+        } catch (error) {
             window.location = `${WEB_ROOT}predict`;
         }
-        return result;
-    }
-
-    checkParameters() {
-        // TODO
     }
 
     componentDidMount() {
+        // POST prediction query
         axios.post(`${API_ROOT}predict2`, this.getJsonFromQuery()).then(res => {
-            const result = res.data;
+            const result = res.data.results[0];
             this.setState({ result });
         });
     }
 
     render() {
-        this.checkParameters();
         return (
             <div className="content">
-                RESULTS: {JSON.stringify(this.state.result)}
-            </div>
+            <Grid fluid>
+                <Row>
+                    <Col md={6} mdOffset={3}>
+                        <Card
+                            hCenter
+                            title={`EAD Score: ${this.state.result ? this.state.result : "" }`}
+                            category="Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+                            ctTableResponsive ctTableFullWidth ctTableUpgrade
+                            content={
+                                <Table>
+                                    <thead>
+                                        <tr>
+                                            <th>Feature</th>
+                                            <th className="text-center">Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Components</td>
+                                            <td>30</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Plugins</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Example Pages</td>
+                                            <td>7</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Documentation</td>
+                                            <td><i className="fa fa-check text-success"></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td>SASS Files</td>
+                                            <td><i className="fa fa-check text-success"></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Login/Register/Lock Pages</td>
+                                            <td><i className="fa fa-times text-danger"></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Premium Support</td>
+                                            <td><i className="fa fa-times text-danger"></i></td>
+                                        </tr>
+                                    </tbody>
+                                </Table>
+                            }
+                        />
+                    </Col>
+                </Row>
+            </Grid>
+        </div>
         );
     }
 }
