@@ -47,7 +47,7 @@ class Results extends Component {
                     <Col md={6} mdOffset={3}>
                         <Card
                             hCenter
-                            title={`EAD Prediction: ${this.state.result ? "ASD" : "Non-Spectrum" }`}
+                            title={`EAD Prediction: ${this.state.result === 1 ? "ASD" : (this.state.result === 0 ? "Non-Spectrum" : "...") }`}
                             category="Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
                             ctTableResponsive ctTableFullWidth ctTableUpgrade
                             content={
