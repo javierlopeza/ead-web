@@ -502,3 +502,17 @@
 .table-upgrade td:nth-child(3){
     text-align: center;
 }
+
+/* Donut charts get built from Pie charts but with a fundamentally difference in the drawing approach. The donut is drawn using arc strokes for maximum freedom in styling */
+.low-risk, .medium-risk, .high-risk {
+    stroke-width: 5px !important;
+}
+.low-risk {
+    stroke: #1DC7EA;    
+}
+.medium-risk {
+    stroke: #FFA534;        
+}
+.high-risk {
+    stroke: #FB404B;
+}

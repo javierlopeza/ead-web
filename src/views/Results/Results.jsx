@@ -33,13 +33,32 @@ class Results extends Component {
         query.is_male = query.sex === "M" ? "1" : "0";
         delete query.sex;
         axios.post(`${API_ROOT}predict_ead`, [query]).then(res => {
-            const result = res.data.has_asd;
-            this.setState({ result });
+            this.setState({ 
+                has_asd: res.data.has_asd,
+                asd_level: res.data.asd_level,
+                asd_probability: res.data.asd_probability,
+                risk_level: res.data.risk_level,
+                asd_percentage: res.data.asd_percentage,
+             });
         });
     }
 
     render() {
         const query = this.getJsonFromQuery();
+
+        var ProgressBar = require('react-progressbar.js')
+        var Circle = ProgressBar.Circle;
+        var options = {
+            strokeWidth: 3
+        };
+        var containerStyle = {
+            width: '200px',
+            height: '200px',
+            "font-size": "40px",
+            display: "block",
+            margin: "auto"
+        };
+
         return (
             <div className="content">
             <Grid fluid>
@@ -47,10 +66,18 @@ class Results extends Component {
                     <Col md={6} mdOffset={3}>
                         <Card
                             hCenter
-                            title={`EAD Prediction: ${this.state.result === 1 ? "ASD" : (this.state.result === 0 ? "Non-Spectrum" : "...") }`}
+                            title={`EAD Score: ${this.state.risk_level ? this.state.risk_level : "..." }`}
                             category="Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
                             ctTableResponsive ctTableFullWidth ctTableUpgrade
                             content={
+                                <div>
+                                    <Circle
+                                        progress={this.state.asd_probability ? this.state.asd_probability : 0}
+                                        text={this.state.asd_percentage ? this.state.asd_percentage : "..."}
+                                        options={options}
+                                        initialAnimate={true}
+                                        containerStyle={containerStyle}
+                                        containerClassName={'.progressbar'} />
                                 <Table style={{marginBottom: 0}}>
                                     <thead>
                                         <tr>
@@ -105,6 +132,7 @@ class Results extends Component {
                                         </tr>
                                     </tbody>
                                 </Table>
+                                </div>
                             }
                         />
                     </Col>
