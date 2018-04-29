@@ -301,7 +301,7 @@
     }
 
     .typo-line{
-        padding-left: 140px;
+        padding-left: 200px;
         margin-bottom: 40px;
         position: relative;
     }
@@ -443,7 +443,7 @@
 
 @media (min-width: 992px){
     .typo-line{
-        padding-left: 140px;
+        padding-left: 200px;
         margin-bottom: 40px;
         position: relative;
     }
