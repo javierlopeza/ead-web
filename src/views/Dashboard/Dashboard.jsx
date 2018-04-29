@@ -37,46 +37,58 @@ class Dashboard extends Component {
     render() {
         return (
             <div className="content">
-                <Grid fluid>
+                <Grid fluid style={{marginBottom: '280px'}}>
+                    <Row>
+                        <Col lg={5} sm={6}>
+                            <StatsCard
+                                bigIcon={<i className="pe-7s-graph1 text-info"></i>}
+                                statsText="Model"
+                                statsValue="Random Forest"
+                                statsIcon={<i className="fa fa-calendar-o"></i>}
+                                statsIconText="Updated yesterday"
+                            />
+                        </Col>
+                        <Col lg={4} sm={6}>
+                            <StatsCard
+                                bigIcon={<i className="pe-7s-server text-warning"></i>}
+                                statsText="Instances"
+                                statsValue="12,461"
+                                statsIcon={<i className="fa fa-calendar-o"></i>}
+                                statsIconText="Updated yesterday"
+                            />
+                        </Col>
+                    </Row>
                     <Row>
                         <Col lg={3} sm={6}>
                             <StatsCard
-                                bigIcon={<i className="pe-7s-server text-warning"></i>}
-                                statsText="Capacity"
-                                statsValue="105GB"
-                                statsIcon={<i className="fa fa-refresh"></i>}
-                                statsIconText="Updated now"
-                            />
-                        </Col>
-                        <Col lg={3} sm={6}>
-                            <StatsCard
-                                bigIcon={<i className="pe-7s-wallet text-success"></i>}
-                                statsText="Revenue"
-                                statsValue="$1,345"
+                                bigIcon={<i className="pe-7s-target text-success"></i>}
+                                statsText="Precision"
+                                statsValue="87%"
                                 statsIcon={<i className="fa fa-calendar-o"></i>}
                                 statsIconText="Last day"
                             />
                         </Col>
                         <Col lg={3} sm={6}>
                             <StatsCard
-                                bigIcon={<i className="pe-7s-graph1 text-danger"></i>}
-                                statsText="Errors"
-                                statsValue="23"
-                                statsIcon={<i className="fa fa-clock-o"></i>}
-                                statsIconText="In the last hour"
+                                bigIcon={<i className="pe-7s-check text-success"></i>}
+                                statsText="Recall"
+                                statsValue="87%"
+                                statsIcon={<i className="fa fa-calendar-o"></i>}
+                                statsIconText="Last day"
                             />
                         </Col>
                         <Col lg={3} sm={6}>
                             <StatsCard
-                                bigIcon={<i className="fa fa-twitter text-info"></i>}
-                                statsText="Followers"
-                                statsValue="+45"
-                                statsIcon={<i className="fa fa-refresh"></i>}
-                                statsIconText="Updated now"
+                                bigIcon={<i className="pe-7s-graph3 text-success"></i>}
+                                statsText="F1-score"
+                                statsValue="86%"
+                                statsIcon={<i className="fa fa-calendar-o"></i>}
+                                statsIconText="Last day"
                             />
                         </Col>
                     </Row>
-                    <Row>
+                    
+                    {/* <Row>
                         <Col md={8}>
                             <Card
                                 statsIcon="fa fa-history"
@@ -119,9 +131,9 @@ class Dashboard extends Component {
                                 }
                             />
                         </Col>
-                    </Row>
+                    </Row> */}
 
-                    <Row>
+                    {/* <Row>
                         <Col md={6}>
                             <Card
                                 id="chartActivity"
@@ -162,9 +174,9 @@ class Dashboard extends Component {
                                 }
                             />
                         </Col>
-                    </Row>
+                    </Row> */}
 
-                    <Row>
+                    {/* <Row>
                         <Col md={12}>
                             <Card
                                 title="Striped Table with Hover"
@@ -200,7 +212,7 @@ class Dashboard extends Component {
                                 }
                             />
                         </Col>
-                    </Row>
+                    </Row> */}
                 </Grid>
             </div>
         );
