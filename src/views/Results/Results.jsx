@@ -67,7 +67,7 @@ class Results extends Component {
                         <Card
                             hCenter
                             title={`EAD Score: ${this.state.risk_level ? this.state.risk_level : "..." }`}
-                            category="Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+                            // category="Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
                             ctTableResponsive ctTableFullWidth ctTableUpgrade
                             content={
                                 <div>
